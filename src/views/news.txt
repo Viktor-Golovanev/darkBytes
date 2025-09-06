@@ -16,7 +16,9 @@
         <div class="container">
           <%- include('partials/components/blockGoToBackAndHome',
           {title:categoryData.name, color: categoryData.color}) %> <%-
-          include('partials/posts', {news: newsList}) %> <%-
+          include('partials/posts', {news: newsList, authorAvatar:
+          author.authorAvatar, authorLastName: author.lastName, authorFirstName:
+          author.firstName}) %> <%-
           include('partials/components/blockGoToBackAndHome', {title: "", color:
           categoryData.color}) %>
         </div>

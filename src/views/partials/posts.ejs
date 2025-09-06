@@ -8,13 +8,19 @@
     <div class="posts_data">
       <div class="posts_info">
         <h3 class="posts_catigory" style="color: <%= post.category.color %>">
-          <%=post.category.name%>
+          <a href="/newsCategory/<%-post.category.id%>">
+            <%=post.category.name%></a
+          >
         </h3>
         <div class="posts_author">
-          <img src="<%- authorAvatar %>" alt="" class="author_avatar" />
+          <img
+            src="<%= post.author.authorAvatar %>"
+            alt=""
+            class="author_avatar"
+          />
           <div class="author_data">
-            <span class="author_lastName"><%- authorLastName %></span>
-            <span class="author_firstName"><%- author.firstName %></span>
+            <span class="author_lastName"><%= post.author.lastName %></span>
+            <span class="author_firstName"><%= post.author.firstName %></span>
           </div>
         </div>
       </div>

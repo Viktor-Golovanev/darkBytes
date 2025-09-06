@@ -67,14 +67,7 @@
               class="news-card_card"
               style="background-image: url(<%=post.image%>)"
             >
-              <h3
-                class="news-card_card-ctegory"
-                style="color: <%-post.category.color%>"
-              >
-                <a href="/newsCategory/<%-post.category.id%>"
-                  ><%=post.category.name%></a
-                >
-              </h3>
+              <h3 class="news-card_card-ctegory"><%=post.category.name%></h3>
               <h2 class="news-card_card-title">
                 <a href="/newPage/<%= post.id %>"><%=post.title%></a>
               </h2>
@@ -105,3 +98,5 @@
     <%- include('partials/footer') %>
   </body>
 </html>
+
+file layout

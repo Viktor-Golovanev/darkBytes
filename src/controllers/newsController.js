@@ -30,10 +30,6 @@ async function newsPage(req, res) {
       },
     });
 
-    const authorCategory = newsList.find(
-      (item) => item.categoryId === parseInt(categoryId)
-    );
-
     const nowDate = new Date();
     res.render("news", {
       title: "DarkBytes",
@@ -43,9 +39,8 @@ async function newsPage(req, res) {
       category: category,
       newsList: newsList,
       categoryData: categoryData,
-      author: authorCategory.author,
     });
-    // console.log(author);
+    console.log(newsList);
   } catch (error) {
     console.error(error);
     res.status(500).send("Ошибка сервера");
