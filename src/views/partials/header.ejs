@@ -1,0 +1,97 @@
+<header class="section_header">
+  <div class="container">
+    <div class="header">
+      <a href="/" class="header_logo-img">
+        <svg
+          viewBox="0 0 120 120"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          width="120.000000"
+          height="120.000000"
+          fill="none"
+          class="logo_svg"
+        >
+          <rect
+            id="Logo"
+            width="120.000000"
+            height="120.000000"
+            x="0.000000"
+            y="0.000000"
+          />
+          <ellipse
+            id="ellipse"
+            rx="60.000004"
+            ry="6.500000"
+            cx="60.0000038"
+            cy="113.5"
+            fill="rgb(136,136,136)"
+          />
+          <path
+            id="polygon"
+            d="M1.08105 85.4L59.4594 110L59.4594 52.6L1.08105 28L1.08105 85.4Z"
+            fill="rgb(38,45,51)"
+            fill-rule="nonzero"
+          />
+          <path
+            id="polygon"
+            d="M59.4594 110L59.4594 52.6L1.08105 28L1.08105 85.4L59.4594 110Z"
+            fill-rule="nonzero"
+            stroke="rgb(0,0,0)"
+            stroke-opacity="0.706285596"
+            stroke-width="2"
+          />
+          <path
+            id="polygon"
+            d="M60.9524 110L119.331 85.4L119.331 28L60.9524 52.6L60.9524 110Z"
+            fill="rgb(136,136,136)"
+            fill-rule="nonzero"
+          />
+          <path
+            id="polygon"
+            d="M119.331 85.4L119.331 28L60.9524 52.6L60.9524 110L119.331 85.4Z"
+            fill-rule="nonzero"
+            stroke="rgb(0,0,0)"
+            stroke-opacity="0.699999988"
+            stroke-width="2"
+          />
+          <path
+            id="polygon"
+            d="M0 27.5932L60 52L120 27.5932L60 4L0 27.5932Z"
+            fill="rgb(136,136,136)"
+            fill-rule="nonzero"
+          />
+          <path
+            id="polygon"
+            d="M60 52L120 27.5932L60 4L0 27.5932L60 52Z"
+            fill-rule="nonzero"
+            stroke="rgb(0,0,0)"
+            stroke-opacity="0.699999988"
+            stroke-width="2"
+          />
+        </svg>
+      </a>
+      <a href="/" class="header_logo-title">
+        <span class="header_logo-partOne"><%= logoPartOne%></span
+        ><span class="header_logo-partTwo"><%= logoPartTwo%></span>
+      </a>
+      <div class="header_dateAndLog">
+        <time class="header_date"><%= headerDateNow %></time>
+      </div>
+    </div>
+  </div>
+  <nav class="section_nav">
+    <div class="container">
+      <div class="nav">
+        <ul class="nav_list">
+          <% category.forEach(category =>{%>
+          <li class="nav_item">
+            <a href="/newsCategory/<%= category.id  %>" class="nav_item-ref"
+              ><%=category.name%></a
+            >
+          </li>
+          <%}) %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

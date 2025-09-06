@@ -1,0 +1,101 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  // output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ==========================================
+//              Схема Новости
+// ==========================================
+
+model News {
+  id        Int      @id @default(autoincrement())
+  title     String   @db.VarChar(255)
+  content   String   @db.Text
+  published Boolean  @default(true)
+  image     String //ссылка на изображение
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+
+  author   Author? @relation(fields: [authorId], references: [id])
+  authorId Int?
+
+  category   Category? @relation(fields: [categoryId], references: [id])
+  categoryId Int?
+
+  @@index([published, createdAt])
+  @@index([authorId])
+  @@index([categoryId])
+  @@map("news")
+}
+
+// ==========================================
+//              Схема Авторы
+// ==========================================
+
+/// Автор статьи
+model Author {
+  /// Уникальный ID
+  id           Int       @id @default(autoincrement())
+  /// Имя автора
+  firstName    String    @db.VarChar(50)
+  /// Фамилия автора
+  lastName     String    @db.VarChar(50)
+  /// Биография "Об Авторе"
+  bio String? @db.VarChar(1000)
+  /// Дата рождения
+  birthDate DateTime? @db.Date
+  /// Категория, за которую отвечает
+  category     Category? @relation(fields: [categoryId], references: [id])
+
+  categoryId   Int?
+  /// Ссылка на аватар
+  authorAvatar String?
+  /// Новости, написанные автором
+  news         News[]
+
+  @@unique([firstName, lastName])
+  @@map("authors")
+}
+
+// ==========================================
+//              Схема Категории
+// ==========================================
+
+model Category {
+  /// Уникальный ID
+  id   Int    @id @default(autoincrement())
+  /// Название категории (например, "Наука", "Политика")
+  name String @unique @db.VarChar(50)
+
+  color String?
+
+  authors Author[]
+
+  news News[]
+
+  @@map("categories")
+}
+
+// ==========================================
+//              Схема Цитаты
+// ==========================================
+
+model Quote {
+  id        Int      @id @default(autoincrement())
+  quote     String   @unique @db.VarChar(255)
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  @@map("quotes")
+}

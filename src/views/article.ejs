@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/articleStyle.css" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <main class="main_content">
+      <section class="content article">
+        <div class="container">
+          <div class="article-data">
+            <a href="/"><div class="home_back-button">&larr; Назад</div></a>
+            <div class="article_author">
+              <div class="article_author-data">
+                <img
+                  src="<%= news.author.authorAvatar %>"
+                  alt=""
+                  class="article_author-avatar"
+                />
+                <div class="article_author-name">
+                  <span class="article_author-lastName dark_text"
+                    ><%= news.author.lastName %></span
+                  >
+                  <span class="article_author-firstName dark_text"
+                    ><%= news.author.firstName %></span
+                  >
+                </div>
+              </div>
+              <span class="article_category"
+                ><a href="" class="article_category-link"
+                  ><%= news.category.name %></a
+                ></span
+              >
+            </div>
+            <div class="article_new">
+              <img src="<%= news.image %>" alt="" class="article_preview-img" />
+              <h1 class="article_title dark_title"><%= news.title %></h1>
+              <p class="article_text dark_text"><%= news.content %></p>
+            </div>
+            <a href="javascript:history.back()"
+              ><div class="home_back-button">&larr; Назад</div></a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
