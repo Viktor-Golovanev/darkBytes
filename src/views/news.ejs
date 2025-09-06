@@ -11,7 +11,9 @@
   </head>
   <body>
     <%- include('partials/header') %>
-    <main class="main_content content"><%- include('partials/posts') %></main>
+    <main class="main_content content">
+      <%- include('partials/posts', {news: newsList}) %>
+    </main>
     <%- include('partials/footer') %>
   </body>
 </html>
