@@ -14,8 +14,10 @@
     <main class="main_content">
       <section class="content article">
         <div class="container">
+          <%- include('partials/components/blockGoToBackAndHome.ejs',{title:
+          news.category.name, color: news.category.color}) %>
           <div class="article-data">
-            <a href="/"><div class="home_back-button">&larr; Назад</div></a>
+            <%- include('partials/components/buttonBack.ejs') %>
             <div class="article_author">
               <div class="article_author-data">
                 <img
@@ -43,10 +45,10 @@
               <h1 class="article_title dark_title"><%= news.title %></h1>
               <p class="article_text dark_text"><%= news.content %></p>
             </div>
-            <a href="javascript:history.back()"
-              ><div class="home_back-button">&larr; Назад</div></a
-            >
+            <%- include('partials/components/buttonBack.ejs') %>>
           </div>
+          <%- include('partials/components/blockGoToBackAndHome.ejs',{title: '',
+          color: news.category.color}) %>
         </div>
       </section>
     </main>

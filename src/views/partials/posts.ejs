@@ -1,27 +1,23 @@
-<section class="posts">
-  <div class="container">
-    <ul class="posts_list">
-      <%news.forEach(post => {%>
-      <li class="posts_item">
-        <div
-          class="posts_preview-img"
-          style="background-image: url(<%=post.image%>)"
-        ></div>
-        <div class="posts_data">
-          <h3 class="posts_catigory" style="color: <%= post.category.color %>">
-            <%=post.category.name%>
-          </h3>
-          <h2 class="posts_title">
-            <%const title = post.title.substring(0, 100)%>
-            <a href="/newPage/<%= post.id %>" class="posts_title-list"
-              ><%=title%></a
-            >
-          </h2>
-          <%const content = post.content.substring(0, 455)%>
-          <p class="posts_text"><%=content%> ...</p>
-        </div>
-      </li>
-      <%});%>
-    </ul>
-  </div>
-</section>
+<ul class="posts_list">
+  <%news.forEach(post => {%>
+  <li class="posts_item">
+    <div
+      class="posts_preview-img"
+      style="background-image: url(<%=post.image%>)"
+    ></div>
+    <div class="posts_data">
+      <h3 class="posts_catigory" style="color: <%= post.category.color %>">
+        <%=post.category.name%>
+      </h3>
+      <h2 class="posts_title">
+        <%const title = post.title.substring(0, 100)%>
+        <a href="/newPage/<%= post.id %>" class="posts_title-list"
+          ><%=title%></a
+        >
+      </h2>
+      <%const content = post.content.substring(0, 455)%>
+      <p class="posts_text"><%=content%> ...</p>
+    </div>
+  </li>
+  <%});%>
+</ul>

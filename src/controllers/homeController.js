@@ -42,7 +42,7 @@ async function getHomePage(req, res) {
 
     const nowDate = new Date();
     res.render("layout", {
-      title: "Главная — DarkBytes",
+      title: "DarkBytes",
       logoPartOne: "Dark",
       logoPartTwo: "Bytes",
       headerDateNow: nowDate.toLocaleDateString("ru-RU"),

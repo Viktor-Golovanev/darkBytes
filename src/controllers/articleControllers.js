@@ -15,7 +15,7 @@ async function getArticlePage(req, res) {
 
   const nowDate = new Date();
   res.render("article", {
-    title: "Главная — DarkBytes",
+    title: "DarkBytes",
     logoPartOne: "Dark",
     logoPartTwo: "Bytes",
     headerDateNow: nowDate.toLocaleDateString("ru-RU"),

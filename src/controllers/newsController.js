@@ -24,14 +24,21 @@ async function newsPage(req, res) {
 
     const category = await prisma.category.findMany();
 
+    const categoryData = await prisma.category.findUnique({
+      where: {
+        id: parseInt(categoryId),
+      },
+    });
+
     const nowDate = new Date();
     res.render("news", {
-      title: "Главная — DarkBytes",
+      title: "DarkBytes",
       logoPartOne: "Dark",
       logoPartTwo: "Bytes",
       headerDateNow: nowDate.toLocaleDateString("ru-RU"),
       category: category,
       newsList: newsList,
+      categoryData: categoryData,
     });
   } catch (error) {
     console.error(error);

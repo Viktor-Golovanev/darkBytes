@@ -89,7 +89,11 @@
       <section class="section_banner">
         <div class="banner"><p class="news_quote"><%=quote[0].quote%></p></div>
       </section>
-      <%- include('partials/posts', {news: newsList}) %>
+      <section class="posts">
+        <div class="container">
+          <%- include('partials/posts', {news: newsList}) %>
+        </div>
+      </section>
     </main>
     <%- include('partials/footer') %>
   </body>

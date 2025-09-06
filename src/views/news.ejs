@@ -12,7 +12,15 @@
   <body>
     <%- include('partials/header') %>
     <main class="main_content content">
-      <%- include('partials/posts', {news: newsList}) %>
+      <section class="posts">
+        <div class="container">
+          <%- include('partials/components/blockGoToBackAndHome',
+          {title:categoryData.name, color: categoryData.color}) %> <%-
+          include('partials/posts', {news: newsList}) %> <%-
+          include('partials/components/blockGoToBackAndHome', {title: "", color:
+          categoryData.color}) %>
+        </div>
+      </section>
     </main>
     <%- include('partials/footer') %>
   </body>
