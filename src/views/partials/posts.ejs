@@ -8,7 +8,9 @@
           style="background-image: url(<%=post.image%>)"
         ></div>
         <div class="posts_data">
-          <h3 class="posts_catigory"><%=post.category.name%></h3>
+          <h3 class="posts_catigory" style="color: <%= post.category.color %>">
+            <%=post.category.name%>
+          </h3>
           <h2 class="posts_title">
             <%const title = post.title.substring(0, 100)%>
             <a href="/newPage/<%= post.id %>" class="posts_title-list"

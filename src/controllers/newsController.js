@@ -33,7 +33,6 @@ async function newsPage(req, res) {
       category: category,
       newsList: newsList,
     });
-    console.log(newsList);
   } catch (error) {
     console.error(error);
     res.status(500).send("Ошибка сервера");

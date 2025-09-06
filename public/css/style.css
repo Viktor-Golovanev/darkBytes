@@ -1,18 +1,31 @@
+/* Глобальные переменные и стили */
 :root {
-  --card-color: #eef1f2ff;
-  --header-height: 75px;
-  --main-text-title-on-dark-color: #1c242b;
-  --main-text-on-dark-color: #384551;
-  --main-text-on-light-color: #bcbfc2;
+  /* Цвета */
+  --color-bg-dark: #4b5157; /* rgb(75, 81, 87) */
+  --color-bg-darker: #262d33; /* rgb(38, 45, 51) */
+  --color-bg-light: #eef1f2ff; /* var(--card-color) */
+  --color-text-light: #bcbfc2; /* var(--main-text-on-light-color) */
+  --color-text-dark: #384551; /* var(--main-text-on-dark-color) */
+  --color-text-title-dark: #1c242b; /* var(--main-text-title-on-dark-color) */
+  --color-header-height: 75px;
+
+  /* Дополнительные цвета из дизайн-системы */
+  --color-category-blue: #5085b6;
+  --color-hover-gray: #cccccc;
+  --color-hover-text: #707d89;
+  --color-border-shadow: #9f9f9f;
+  --color-footer-bg: hwb(208 15% 80%);
+  --color-link-dark: #384551;
 }
 
+/* Шрифты */
 @font-face {
   font-family: "Lato-regular";
   src: url("../fonts/lato-regular.woff2") format("woff2"),
     url("../fonts/lato-regular.woff") format("woff");
   font-weight: regular;
   font-style: regular;
-  font-display: swap; /* Улучшает отображение при загрузке */
+  font-display: swap;
 }
 
 @font-face {
@@ -21,28 +34,21 @@
     url("../fonts/RobotoSlab-Bold.woff") format("woff");
   font-weight: bold;
   font-style: bold;
-  font-display: swap; /* Улучшает отображение при загрузке */
+  font-display: swap;
 }
 
+/* Глобальные стили */
 body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color: var(--main-text-on-light-color);
-  background-color: rgb(75, 81, 87);
+  color: var(--color-text-light);
+  background-color: var(--color-bg-dark);
   font-family: "Lato-regular", sans-serif;
 }
 
 section {
   margin-bottom: 30px;
-}
-
-.dark_text {
-  color: var(--main-text-on-dark-color);
-}
-
-.dark_title {
-  color: var(--main-text-title-on-dark-color);
 }
 
 .container {
@@ -53,15 +59,25 @@ section {
   max-width: 1140px;
 }
 
+/* Общие классы для текста */
+.dark_text {
+  color: var(--color-text-dark);
+}
+
+.dark_title {
+  color: var(--color-text-title-dark);
+}
+
+/* Стили Header */
 .logo_svg {
-  height: var(--header-height);
+  height: var(--color-header-height);
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: var(--header-height);
+  height: var(--color-header-height);
 }
 
 .header_logo-title {
@@ -75,11 +91,11 @@ section {
 }
 
 .header_logo-partOne {
-  color: #384551;
+  color: var(--color-link-dark);
 }
 
 .header_logo-partTwo {
-  color: var(--main-text-on-light-color);
+  color: var(--color-text-light);
 }
 
 .header_dateAndLog {
@@ -89,7 +105,7 @@ section {
 }
 
 .section_nav {
-  background-color: rgb(38, 45, 51);
+  background-color: var(--color-bg-darker);
   min-height: 100px;
 }
 
@@ -107,14 +123,12 @@ section {
   width: 100%;
 }
 
-/* ========================== */
-/*    main-content preview    */
-/* ========================== */
+/* Стили Main Content (Preview) */
 .content {
   background: linear-gradient(
-    rgb(38, 45, 51) 10%,
-    rgb(38, 45, 51) 10%,
-    rgb(75, 81, 87) 80%
+    var(--color-bg-darker) 10%,
+    var(--color-bg-darker) 10%,
+    var(--color-bg-dark) 80%
   );
 }
 
@@ -122,7 +136,7 @@ section {
   display: flex;
   max-width: 1140px;
   min-height: 570px;
-  background-color: var(--card-color);
+  background-color: var(--color-bg-light);
   border-radius: 15px;
 }
 
@@ -137,7 +151,6 @@ section {
   width: 100%;
   height: 100%;
   padding: 50px 0 0 50px;
-
   background-size: cover;
   transition: background-image 0.3s ease;
   border-top-left-radius: 15px;
@@ -156,7 +169,6 @@ section {
     rgba(0, 13, 87, 0.5),
     rgba(0, 11, 94, 0.3)
   );
-
   z-index: 1;
   pointer-events: none;
   border-radius: 15px 0 0 15px;
@@ -177,12 +189,12 @@ section {
   background-size: cover;
 }
 
-.card_preview-author-name {
-  color: var(--main-text-on-light-color);
+.card_preview-author-name,
+.card_preview-author-category {
+  color: var(--color-text-light);
 }
 
 .card_preview-author-category {
-  color: var(--main-text-on-light-color);
   font-size: 12px;
 }
 
@@ -203,23 +215,14 @@ section {
   top: 135px;
   padding-right: 15px;
   font-size: 32px;
-  color: var(--main-text-on-light-color);
+  color: var(--color-text-light);
   z-index: 2;
 }
 
 .card-preview-news-title:hover,
-:active,
-:focus {
-  color: #cccccc;
-}
-
 .card-preview-news-title:active,
-:focus {
-  color: #cccccc;
-}
-
 .card-preview-news-title:focus {
-  color: #cccccc;
+  color: var(--color-hover-gray);
 }
 
 .content_preview-title {
@@ -233,23 +236,18 @@ section {
 
 .content_preview-title > h3 {
   font-size: 14px;
-  color: rgba(38, 45, 51, 1);
+  color: var(--color-bg-darker);
 }
+
 .card-preview_news-item {
-  background-color: var(--card-color);
+  background-color: var(--color-bg-light);
   transition: background-color 0.3s ease;
 }
 
-.card-preview_news-item:hover {
-  background-color: var(--card-color);
-}
-
-.card-preview_news-item:focus {
-  background-color: var(--card-color);
-}
-
+.card-preview_news-item:hover,
+.card-preview_news-item:focus,
 .card-preview_news-item:active {
-  background-color: var(--card-color);
+  background-color: var(--color-bg-light);
 }
 
 .card-preview_news-category > h3 {
@@ -270,10 +268,7 @@ section {
   gap: 10px;
 }
 
-/* ========================== */
-/*         news-cards         */
-/* ========================== */
-
+/* Стили News Cards */
 .news-card_cards {
   display: flex;
   flex-direction: row;
@@ -286,20 +281,17 @@ section {
   width: 100%;
   min-height: 370px;
   height: 100%;
-  background-color: var(--main-text-on-light-color);
+  background-color: var(--color-text-light);
   border-radius: 15px;
+  position: relative;
+  background-size: cover;
 }
 
 .news-card_card-ctegory {
   position: relative;
-  color: #5085b6;
+  color: var(--color-category-blue);
   top: 15px;
   left: 15px;
-}
-
-.news-card_card {
-  position: relative;
-  background-size: cover;
 }
 
 .news-card_card::before {
@@ -327,19 +319,14 @@ section {
   height: 50px;
   left: 15px;
   top: 50px;
-  color: #384551;
+  color: var(--color-text-dark);
   transition: color 0.3s ease;
 }
 
-.news-card_card-title:hover {
-  color: #707d89;
-}
-
-.news-card_card-title:active {
-  color: #707d89;
-}
+.news-card_card-title:hover,
+.news-card_card-title:active,
 .news-card_card-title:focus {
-  color: #707d89;
+  color: var(--color-hover-text);
 }
 
 .news-card_card-text-preview {
@@ -372,10 +359,7 @@ section {
   padding-left: 15px;
 }
 
-/* ========================== */
-/*            baner           */
-/* ========================== */
-
+/* Стили Banner */
 .section_banner {
   width: 99vw;
   height: 200px;
@@ -390,7 +374,7 @@ section {
   background-image: radial-gradient(
       ellipse at center,
       transparent -50%,
-      rgb(75, 81, 87) 50%
+      var(--color-bg-dark) 50%
     ),
     url("../img/cube.webp");
   background-repeat: no-repeat;
@@ -398,25 +382,19 @@ section {
 }
 
 .news_quote {
-  color: #cccccc;
+  color: var(--color-hover-gray);
   font-family: "RobotoSlab-Bold" sans-serif;
   font-style: "bold";
 }
 
-/* ========================== */
-/*           possts           */
-/* ========================== */
-
+/* Стили Posts (используются на главной и на странице всех статей) */
 .posts_list {
   width: 1140px;
   height: 100%;
-}
-
-.posts_list {
   display: flex;
   flex-direction: column;
   padding: 30px;
-  background-color: var(--card-color);
+  background-color: var(--color-bg-light);
   border-radius: 15px;
 }
 
@@ -429,8 +407,7 @@ section {
 .posts_item:not(:last-child) {
   padding-bottom: 15px;
   margin-bottom: 15px;
-
-  box-shadow: 0 2px 0 #9f9f9f;
+  box-shadow: 0 2px 0 var(--color-border-shadow);
 }
 
 .posts_preview-img {
@@ -452,24 +429,21 @@ section {
 .posts_title {
   font-size: 20px;
   margin-bottom: 15px;
-  color: var(--main-text-on-dark-color);
+  color: var(--color-text-dark);
 }
 
 .posts_title:hover {
-  color: #6a747e;
+  color: var(--color-hover-text);
 }
 
 .posts_text {
   color: #7b7a7a;
 }
 
-/* ========================== */
-/*           footer           */
-/* ========================== */
-
+/* Стили Footer */
 .footer {
   min-height: 100px;
-  background-color: hwb(208 15% 80%);
+  background-color: var(--color-footer-bg);
 }
 
 .footer_info {
@@ -511,6 +485,6 @@ section {
   height: 50px;
   border-radius: 5px;
   border: none;
-  color: var(--main-text-on-light-color);
-  background-color: var(--main-text-on-dark-color);
+  color: var(--color-text-light);
+  background-color: var(--color-text-dark);
 }

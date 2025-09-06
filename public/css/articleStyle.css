@@ -1,15 +1,10 @@
-:root {
-  --card-color: #eef1f2ff;
-  --header-height: 75px;
-  --main-text-on-dark-color: #384551;
-  --main-text-on-light-color: #bcbfc2;
-}
+/* Стили, специфичные для страницы отдельной статьи */
 
 .article-data {
   display: flex;
   flex-direction: column;
   padding: 30px;
-  background-color: var(--card-color);
+  background-color: var(--color-bg-light);
   border-radius: 15px;
   gap: 30px;
 }
@@ -46,5 +41,7 @@
 }
 
 .article_category-link {
-  color: article_category-link;
+  color: var(
+    --color-category-blue
+  ); /* Исправлено: использована переменная вместо 'article_category-link' */
 }
