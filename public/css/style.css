@@ -22,8 +22,8 @@
   font-family: "Lato-regular";
   src: url("../fonts/lato-regular.woff2") format("woff2"),
     url("../fonts/lato-regular.woff") format("woff");
-  font-weight: regular;
-  font-style: regular;
+  font-weight: normal;
+  font-style: normal;
   font-display: swap;
 }
 
@@ -32,7 +32,7 @@
   src: url("../fonts/RobotoSlab-Bold.woff2") format("woff2"),
     url("../fonts/RobotoSlab-Bold.woff") format("woff");
   font-weight: bold;
-  font-style: bold;
+  font-style: normal;
   font-display: swap;
 }
 
@@ -44,18 +44,41 @@ body {
   color: var(--color-text-light);
   background-color: var(--color-bg-dark);
   font-family: "Lato-regular", sans-serif;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
 }
 
 section {
   margin-bottom: 30px;
 }
 
+.section_header {
+  margin: 0 auto;
+}
+
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin: 0 auto;
-  max-width: 1140px;
+  max-width: 1440px;
+  width: 100%;
+  padding: 0 20px;
+}
+
+@media (max-width: 1366px) {
+  .container {
+    margin: 0 5%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 768px;
+    padding: 0 15px;
+  }
 }
 
 /* Общие классы для текста */
@@ -77,12 +100,14 @@ section {
   justify-content: space-between;
   width: 100%;
   height: var(--color-header-height);
+  padding: 0 20px;
 }
 
 .header_logo-title {
   display: flex;
   font-size: 55px;
   gap: 10px;
+  align-items: center;
 }
 
 .header_logo-title:visited {
@@ -111,15 +136,15 @@ section {
 .nav {
   display: flex;
   justify-content: center;
-  padding-top: 10px;
+  padding: 10px 0;
   width: 100%;
-  min-height: 15px;
 }
 
 .nav_list {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: 100%;
+  padding: 0 20px;
 }
 
 /* Стили Main Content (Preview) */
@@ -133,16 +158,16 @@ section {
 
 .card_preview {
   display: flex;
-  max-width: 1140px;
-  min-height: 570px;
+  max-width: 1440px;
+  width: 100%;
   background-color: var(--color-bg-light);
   border-radius: 15px;
 }
 
 .content_preview-img {
-  max-width: 870px;
+  min-width: 75%;
   width: 100%;
-  height: 570px;
+  background-size: cover;
 }
 
 .card_preview-img {
@@ -229,7 +254,7 @@ section {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  max-width: 30%;
+  max-width: 100%;
   padding: 10px 10px 0 10px;
 }
 
@@ -267,30 +292,50 @@ section {
   gap: 10px;
 }
 
-/* Стили News Cards */
+/* Стили News Cards — ИСПРАВЛЕНО */
 .news-card_cards {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
   gap: 30px;
 }
 
+.news-card_card-ctegory {
+  color: var(--color-category-blue);
+  transform: translateZ(0);
+}
+
 .news-card_card {
-  max-width: 555px;
-  width: 100%;
-  min-height: 370px;
-  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
+  max-width: 100%;
+  min-height: 23em; /* ← ГИБКАЯ ВЫСОТА */
+  height: auto; /* ← Пусть растягивается под контент */
   background-color: var(--color-text-light);
   border-radius: 15px;
-  position: relative;
   background-size: cover;
 }
 
-.news-card_card-ctegory {
-  position: relative;
-  color: var(--color-category-blue);
-  top: 15px;
-  left: 15px;
+/* Адаптив для карточек — ИСПРАВЛЕНО */
+@media (max-width: 1366px) {
+  .news-card_card {
+    min-height: 25em;
+  }
+}
+
+@media (max-width: 1200px) {
+  .news-card_card {
+    min-height: 22em; /* ← Компактнее на 1200px */
+  }
+}
+
+@media (max-width: 1024px) {
+  .news-card_card {
+    min-height: 28em; /* ← На планшетах можно выше */
+  }
 }
 
 .news-card_card::before {
@@ -310,16 +355,17 @@ section {
 }
 
 .news-card_card-title {
-  position: relative;
-  white-space: nowrap;
+  white-space: normal; /* ← Исправлено с "wrap" на "normal" */
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 350px;
-  height: 50px;
-  left: 15px;
-  top: 50px;
+  max-width: 100%; /* ← Убрано 40vw — неадаптивно */
   color: var(--color-text-dark);
   transition: color 0.3s ease;
+  transform: translateZ(0);
+}
+
+.news-card_card-title > a {
+  display: block;
 }
 
 .news-card_card-title:hover,
@@ -329,21 +375,22 @@ section {
 }
 
 .news-card_card-text-preview {
-  position: relative;
   color: black;
-  max-width: 350px;
-  left: 15px;
-  top: 70px;
+  max-width: 100%; /* ← Убрано 40vw */
+  margin-bottom: 30px;
+  transform: translateZ(0);
+}
+
+@media (max-width: 1200px) {
+  .news-card_card-text-preview {
+    margin-bottom: 2em; /* ← Было 3em — слишком много */
+  }
 }
 
 .news-card_card-author {
-  position: relative;
   display: flex;
   align-items: center;
-  max-width: 100%;
-  min-height: 50px;
-  left: 15px;
-  top: 155px;
+  transform: translateZ(0);
 }
 
 .news-card_card-author-avatar {
@@ -360,8 +407,8 @@ section {
 
 /* Стили Banner */
 .section_banner {
-  width: 99vw;
-  height: 200px;
+  width: 100%;
+  height: 10em;
 }
 
 .banner {
@@ -381,15 +428,15 @@ section {
 }
 
 .news_quote {
-  color: var(--color-hover-gray);
-  font-family: "RobotoSlab-Bold" sans-serif;
-  font-style: "bold";
+  color: var(--color-bg-light);
+  font-family: "RobotoSlab-Bold", sans-serif; /* ← Исправлено: запятая + sans-serif */
+  font-weight: bold; /* ← font-style: "bold" — неверно, нужно font-weight */
 }
 
-/* Стили Posts (используются на главной и на странице всех статей) */
+/* Стили Posts */
 .posts_list {
-  width: 1140px;
-  height: 100%;
+  max-width: 1440px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   padding: 30px;
@@ -401,6 +448,7 @@ section {
   display: flex;
   flex-direction: row;
   min-height: 300px;
+  height: 100%;
 }
 
 .posts_item:not(:last-child) {
@@ -410,9 +458,9 @@ section {
 }
 
 .posts_preview-img {
-  width: 50%;
+  width: 45%;
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
   border-radius: 15px;
 }
 
@@ -441,14 +489,17 @@ section {
 
 /* Стили Footer */
 .footer {
+  display: flex;
+  align-items: center;
   min-height: 100px;
   background-color: var(--color-footer-bg);
+  padding: 0 20px;
 }
 
 .footer_info {
   display: flex;
   justify-content: space-between;
-  padding-top: 15px;
+  align-items: center;
   width: 100%;
 }
 
@@ -470,14 +521,23 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 1vh;
+}
+
+.footer_darkBytes {
+  font-size: 0.9rem;
+}
+
+.footer_darkBytes-author {
+  font-size: 0.9rem;
 }
 
 .quote_concept {
+  font-size: 0.9rem;
   max-width: 50%;
 }
 
 /* components */
-
 .home_back-button {
   display: flex;
   justify-content: center;
@@ -495,7 +555,7 @@ section {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
-  padding: 0 30px 0 30px;
+  padding: 0 30px;
   background-color: var(--color-bg-light);
   border-radius: 15px;
 }
@@ -503,7 +563,7 @@ section {
 .posts_info {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 30px;
+  margin: 0;
 }
 
 .posts_author {
@@ -523,7 +583,266 @@ section {
 }
 
 .author_avatar {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   background-size: cover;
+}
+
+/* ================
+   МОБИЛЬНАЯ АДАПТАЦИЯ
+   ================ */
+
+/* Скрываем .card_preview на мобильных */
+@media (max-width: 768px) {
+  .card_preview {
+    display: none;
+  }
+}
+
+/* Адаптация Header */
+@media (max-width: 768px) {
+  .header {
+    padding: 0 15px;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    gap: 10px;
+  }
+
+  .header_logo-title {
+    font-size: 36px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .header_dateAndLog {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* Адаптация навигации */
+@media (max-width: 768px) {
+  .section_header {
+    margin: 0;
+  }
+
+  .section_nav {
+    width: 100%;
+    min-height: auto;
+    padding: 15px 0;
+  }
+
+  .nav {
+    padding: 0;
+  }
+
+  .nav_list {
+    flex-direction: column;
+    gap: 15px;
+    padding: 0 15px;
+    align-items: center;
+  }
+}
+
+/* Адаптация сетки карточек новостей — 1 колонка */
+@media (max-width: 768px) {
+  .news-card_cards {
+    grid-template-columns: 1fr;
+  }
+
+  .news-card_card {
+    min-height: 30em;
+    padding: 20px;
+  }
+
+  .news-card_card-title {
+    font-size: 1.25rem;
+  }
+
+  .news-card_card-text-preview {
+    font-size: 0.9rem;
+    margin-bottom: 1.5em;
+  }
+
+  .news-card_card-author {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .news-card_card-author-name {
+    padding-left: 0;
+  }
+}
+
+/* Адаптация Posts (список статей) */
+@media (max-width: 768px) {
+  .posts_list {
+    padding: 20px 15px;
+  }
+
+  .posts_item {
+    flex-direction: column;
+    min-height: auto;
+    gap: 15px;
+  }
+
+  .posts_preview-img {
+    width: 100%;
+    height: 200px;
+  }
+
+  .posts_data {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .posts_title {
+    font-size: 1.2rem;
+  }
+
+  .posts_text {
+    font-size: 0.9rem;
+  }
+}
+
+/* Адаптация Banner */
+@media (max-width: 768px) {
+  .section_banner {
+    height: 8em;
+  }
+
+  .news_quote {
+    font-size: 1rem;
+    padding: 0 10px;
+    text-align: center;
+  }
+}
+
+/* Адаптация Footer */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 15px;
+    text-align: center;
+  }
+
+  .footer_info {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .quote_concept {
+    max-width: 100%;
+    font-size: 0.85rem;
+    text-align: center;
+  }
+
+  .footer_contacts {
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+/* Адаптация компонентов */
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    margin: 0;
+  }
+
+  .go-to-home-and-back {
+    padding: 15px;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .home_back-button {
+    width: 100%;
+    max-width: 200px;
+    height: 40px;
+  }
+
+  .posts_info {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .posts_author {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .author_avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .author_data {
+    margin-left: 0;
+    align-items: flex-start;
+  }
+}
+
+/* Очень маленькие экраны (320px) */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 10px;
+  }
+
+  .header_logo-title {
+    font-size: 28px;
+  }
+
+  .news-card_card {
+    min-height: 28em;
+    padding: 15px;
+  }
+
+  .news-card_card-title {
+    font-size: 1.1rem;
+  }
+
+  .posts_list {
+    padding: 15px 10px;
+  }
+
+  .posts_title {
+    font-size: 1.1rem;
+  }
+
+  .footer {
+    padding: 15px 10px;
+  }
+
+  .quote_concept {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .header_logo-title {
+    font-size: 24px;
+  }
+
+  .news-card_card {
+    min-height: 26em;
+    padding: 10px;
+  }
+
+  .news-card_card-title {
+    font-size: 1rem;
+  }
+
+  .posts_title {
+    font-size: 1rem;
+  }
+
+  .home_back-button {
+    height: 35px;
+    font-size: 0.9rem;
+  }
 }
