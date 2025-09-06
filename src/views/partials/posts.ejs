@@ -6,9 +6,19 @@
       style="background-image: url(<%=post.image%>)"
     ></div>
     <div class="posts_data">
-      <h3 class="posts_catigory" style="color: <%= post.category.color %>">
-        <%=post.category.name%>
-      </h3>
+      <div class="posts_info">
+        <h3 class="posts_catigory" style="color: <%= post.category.color %>">
+          <%=post.category.name%>
+        </h3>
+        <div class="posts_author">
+          <img src="<%- authorAvatar %>" alt="" class="author_avatar" />
+          <div class="author_data">
+            <span class="author_lastName"><%- authorLastName %></span>
+            <span class="author_firstName"><%- author.firstName %></span>
+          </div>
+        </div>
+      </div>
+
       <h2 class="posts_title">
         <%const title = post.title.substring(0, 100)%>
         <a href="/newPage/<%= post.id %>" class="posts_title-list"

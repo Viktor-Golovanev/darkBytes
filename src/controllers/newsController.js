@@ -26,9 +26,13 @@ async function newsPage(req, res) {
 
     const categoryData = await prisma.category.findUnique({
       where: {
-        id: parseInt(categoryId),
+        id: parseInt(req.params.id),
       },
     });
+
+    const authorCategory = newsList.find(
+      (item) => item.categoryId === parseInt(categoryId)
+    );
 
     const nowDate = new Date();
     res.render("news", {
@@ -39,7 +43,9 @@ async function newsPage(req, res) {
       category: category,
       newsList: newsList,
       categoryData: categoryData,
+      author: authorCategory.author,
     });
+    // console.log(author);
   } catch (error) {
     console.error(error);
     res.status(500).send("Ошибка сервера");
