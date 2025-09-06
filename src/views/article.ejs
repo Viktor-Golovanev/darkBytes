@@ -17,7 +17,6 @@
           <%- include('partials/components/blockGoToBackAndHome.ejs',{title:
           news.category.name, color: news.category.color}) %>
           <div class="article-data">
-            <%- include('partials/components/buttonBack.ejs') %>
             <div class="article_author">
               <div class="article_author-data">
                 <img
@@ -45,7 +44,6 @@
               <h1 class="article_title dark_title"><%= news.title %></h1>
               <p class="article_text dark_text"><%= news.content %></p>
             </div>
-            <%- include('partials/components/buttonBack.ejs') %>>
           </div>
           <%- include('partials/components/blockGoToBackAndHome.ejs',{title: '',
           color: news.category.color}) %>

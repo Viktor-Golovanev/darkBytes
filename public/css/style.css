@@ -753,16 +753,24 @@ section {
     margin: 0;
   }
 
+  .main_title {
+    font-size: 1em;
+  }
+
   .go-to-home-and-back {
+    display: flex;
+    flex-direction: row;
     padding: 15px;
-    flex-direction: column;
+    width: 100%;
     gap: 15px;
   }
 
   .home_back-button {
     width: 100%;
     max-width: 200px;
-    height: 40px;
+    height: 30px;
+    padding: 0 5px;
+    font-size: 0.8em;
   }
 
   .posts_info {
