@@ -1,3 +1,7 @@
+/* ================
+   :ROOT & ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ
+   ================ */
+
 :root {
   /* Цвета */
   --color-bg-dark: #4b5157; /* rgb(75, 81, 87) */
@@ -17,7 +21,10 @@
   --color-link-dark: #384551;
 }
 
-/* Шрифты */
+/* ================
+   ШРИФТЫ
+   ================ */
+
 @font-face {
   font-family: "Lato-regular";
   src: url("../fonts/lato-regular.woff2") format("woff2"),
@@ -36,7 +43,10 @@
   font-display: swap;
 }
 
-/* Глобальные стили */
+/* ================
+   ГЛОБАЛЬНЫЕ СТИЛИ
+   ================ */
+
 body {
   display: flex;
   flex-direction: column;
@@ -53,8 +63,12 @@ section {
   margin-bottom: 30px;
 }
 
+.content_card-preview-mobile {
+  display: none;
+}
+
 .section_header {
-  margin: 0 auto;
+  margin: 0;
 }
 
 .container {
@@ -68,20 +82,10 @@ section {
   padding: 0 20px;
 }
 
-@media (max-width: 1366px) {
-  .container {
-    margin: 0 5%;
-  }
-}
+/* ================
+   ТЕКСТОВЫЕ КЛАССЫ
+   ================ */
 
-@media (max-width: 1024px) {
-  .container {
-    max-width: 768px;
-    padding: 0 15px;
-  }
-}
-
-/* Общие классы для текста */
 .dark_text {
   color: var(--color-text-dark);
 }
@@ -90,7 +94,10 @@ section {
   color: var(--color-text-title-dark);
 }
 
-/* Стили Header */
+/* ================
+   HEADER
+   ================ */
+
 .logo_svg {
   height: var(--color-header-height);
 }
@@ -128,6 +135,10 @@ section {
   justify-content: space-around;
 }
 
+/* ================
+   НАВИГАЦИЯ
+   ================ */
+
 .section_nav {
   background-color: var(--color-bg-darker);
   min-height: 100px;
@@ -147,7 +158,10 @@ section {
   padding: 0 20px;
 }
 
-/* Стили Main Content (Preview) */
+/* ================
+   MAIN CONTENT (PREVIEW)
+   ================ */
+
 .content {
   background: linear-gradient(
     var(--color-bg-darker) 10%,
@@ -292,7 +306,10 @@ section {
   gap: 10px;
 }
 
-/* Стили News Cards — ИСПРАВЛЕНО */
+/* ================
+   NEWS CARDS
+   ================ */
+
 .news-card_cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -312,30 +329,11 @@ section {
   justify-content: space-between;
   padding: 30px;
   max-width: 100%;
-  min-height: 23em; /* ← ГИБКАЯ ВЫСОТА */
-  height: auto; /* ← Пусть растягивается под контент */
+  min-height: 23em;
+  height: auto;
   background-color: var(--color-text-light);
   border-radius: 15px;
   background-size: cover;
-}
-
-/* Адаптив для карточек — ИСПРАВЛЕНО */
-@media (max-width: 1366px) {
-  .news-card_card {
-    min-height: 25em;
-  }
-}
-
-@media (max-width: 1200px) {
-  .news-card_card {
-    min-height: 22em; /* ← Компактнее на 1200px */
-  }
-}
-
-@media (max-width: 1024px) {
-  .news-card_card {
-    min-height: 28em; /* ← На планшетах можно выше */
-  }
 }
 
 .news-card_card::before {
@@ -355,10 +353,10 @@ section {
 }
 
 .news-card_card-title {
-  white-space: normal; /* ← Исправлено с "wrap" на "normal" */
+  white-space: normal;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 100%; /* ← Убрано 40vw — неадаптивно */
+  max-width: 100%;
   color: var(--color-text-dark);
   transition: color 0.3s ease;
   transform: translateZ(0);
@@ -376,15 +374,9 @@ section {
 
 .news-card_card-text-preview {
   color: black;
-  max-width: 100%; /* ← Убрано 40vw */
+  max-width: 100%;
   margin-bottom: 30px;
   transform: translateZ(0);
-}
-
-@media (max-width: 1200px) {
-  .news-card_card-text-preview {
-    margin-bottom: 2em; /* ← Было 3em — слишком много */
-  }
 }
 
 .news-card_card-author {
@@ -405,10 +397,20 @@ section {
   padding-left: 15px;
 }
 
-/* Стили Banner */
+/* ================
+   BANNER
+   ================ */
+
 .section_banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 10em;
+}
+
+.section_banner > .container {
+  height: 100%;
 }
 
 .banner {
@@ -429,11 +431,14 @@ section {
 
 .news_quote {
   color: var(--color-bg-light);
-  font-family: "RobotoSlab-Bold", sans-serif; /* ← Исправлено: запятая + sans-serif */
-  font-weight: bold; /* ← font-style: "bold" — неверно, нужно font-weight */
+  font-family: "RobotoSlab-Bold", sans-serif;
+  font-weight: bold;
 }
 
-/* Стили Posts */
+/* ================
+   POSTS
+   ================ */
+
 .posts_list {
   max-width: 1440px;
   width: 100%;
@@ -487,7 +492,10 @@ section {
   color: #7b7a7a;
 }
 
-/* Стили Footer */
+/* ================
+   FOOTER
+   ================ */
+
 .footer {
   display: flex;
   align-items: center;
@@ -500,6 +508,8 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  padding: 30px 0;
   width: 100%;
 }
 
@@ -537,7 +547,14 @@ section {
   max-width: 50%;
 }
 
-/* components */
+.lecense_content {
+  margin-top: 30px;
+}
+
+/* ================
+   КОМПОНЕНТЫ
+   ================ */
+
 .home_back-button {
   display: flex;
   justify-content: center;
@@ -589,18 +606,112 @@ section {
 }
 
 /* ================
-   МОБИЛЬНАЯ АДАПТАЦИЯ
+   АДАПТИВНЫЕ СТИЛИ (МЕДИА-ЗАПРОСЫ В НИЗУ)
    ================ */
 
-/* Скрываем .card_preview на мобильных */
-@media (max-width: 768px) {
-  .card_preview {
-    display: none;
+/* 1366px и меньше */
+@media (max-width: 1366px) {
+  .container {
+    margin: 0 auto;
+  }
+
+  .news-card_card {
+    min-height: 25em;
   }
 }
 
-/* Адаптация Header */
+/* 1200px и меньше */
+@media (max-width: 1200px) {
+  .news-card_card {
+    min-height: 22em;
+  }
+
+  .news-card_card-text-preview {
+    margin-bottom: 2em;
+  }
+}
+
+/* 1024px и меньше */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+
+  .section_nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content_card-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .news-card_card {
+    min-height: 28em;
+  }
+
+  .news-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .section_banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .section_banner > .container {
+    height: 100%;
+  }
+
+  .banner {
+    background-image: radial-gradient(
+        ellipse at center,
+        transparent -30%,
+        var(--color-bg-dark) 60%
+      ),
+      url(../img/cube.webp);
+  }
+
+  .posts {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 0;
+  }
+}
+
+/* 768px и меньше — МОБИЛЬНАЯ ВЕРСИЯ */
 @media (max-width: 768px) {
+  /* Контейнер */
+  .container {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  /* Превью карточек */
+  .card_preview {
+    display: none;
+  }
+
+  .content_card-preview-mobile {
+    display: flex;
+  }
+
+  /* Header */
   .header {
     padding: 0 15px;
     flex-direction: column;
@@ -619,10 +730,8 @@ section {
     align-items: center;
     text-align: center;
   }
-}
 
-/* Адаптация навигации */
-@media (max-width: 768px) {
+  /* Навигация */
   .section_header {
     margin: 0;
   }
@@ -643,10 +752,8 @@ section {
     padding: 0 15px;
     align-items: center;
   }
-}
 
-/* Адаптация сетки карточек новостей — 1 колонка */
-@media (max-width: 768px) {
+  /* News Cards */
   .news-card_cards {
     grid-template-columns: 1fr;
   }
@@ -673,10 +780,8 @@ section {
   .news-card_card-author-name {
     padding-left: 0;
   }
-}
 
-/* Адаптация Posts (список статей) */
-@media (max-width: 768px) {
+  /* Posts */
   .posts_list {
     padding: 20px 15px;
   }
@@ -704,10 +809,8 @@ section {
   .posts_text {
     font-size: 0.9rem;
   }
-}
 
-/* Адаптация Banner */
-@media (max-width: 768px) {
+  /* Banner */
   .section_banner {
     height: 8em;
   }
@@ -717,10 +820,8 @@ section {
     padding: 0 10px;
     text-align: center;
   }
-}
 
-/* Адаптация Footer */
-@media (max-width: 768px) {
+  /* Footer */
   .footer {
     flex-direction: column;
     gap: 20px;
@@ -744,15 +845,8 @@ section {
     align-items: center;
     gap: 10px;
   }
-}
 
-/* Адаптация компонентов */
-@media (max-width: 768px) {
-  .container {
-    width: 100%;
-    margin: 0;
-  }
-
+  /* Компоненты */
   .main_title {
     font-size: 1em;
   }
@@ -795,7 +889,7 @@ section {
   }
 }
 
-/* Очень маленькие экраны (320px) */
+/* 480px и меньше */
 @media (max-width: 480px) {
   .container {
     padding: 0 10px;
@@ -831,6 +925,7 @@ section {
   }
 }
 
+/* 320px и меньше */
 @media (max-width: 320px) {
   .header_logo-title {
     font-size: 24px;

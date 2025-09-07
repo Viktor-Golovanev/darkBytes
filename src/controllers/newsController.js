@@ -40,7 +40,6 @@ async function newsPage(req, res) {
       newsList: newsList,
       categoryData: categoryData,
     });
-    console.log(newsList);
   } catch (error) {
     console.error(error);
     res.status(500).send("Ошибка сервера");
