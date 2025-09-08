@@ -1,0 +1,46 @@
+:root {
+  /* Цвета */
+  --color-bg-dark: #4b5157; /* rgb(75, 81, 87) */
+  --color-bg-darker: #262d33; /* rgb(38, 45, 51) */
+  --color-bg-light: #eef1f2ff; /* var(--card-color) */
+  --color-text-light: #bcbfc2; /* var(--main-text-on-light-color) */
+  --color-text-dark: #384551; /* var(--main-text-on-dark-color) */
+  --color-text-title-dark: #1c242b; /* var(--main-text-title-on-dark-color) */
+  --color-header-height: 75px;
+
+  /* Дополнительные цвета из дизайн-системы */
+  --color-category-blue: #5085b6;
+  --color-hover-gray: #cccccc;
+  --color-hover-text: #707d89;
+  --color-border-shadow: #9f9f9f;
+  --color-footer-bg: hwb(208 15% 80%);
+  --color-link-dark: #384551;
+}
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  width: 100%;
+  border-radius: 15px;
+  background-color: var(--color-bg-light);
+}
+
+.pagination_list {
+  display: flex;
+  flex-direction: row;
+}
+
+.pagination_button {
+  height: 30px;
+  width: 30px;
+  color: var(--color-text-light);
+  border-radius: 50%;
+  background-color: var(--color-bg-dark);
+}
+
+.paginationButtonActive {
+  background-color: var(--color-bg-darker);
+}

@@ -3,6 +3,16 @@ const prisma = require("../db/prisma");
 async function newsPage(req, res) {
   try {
     const categoryId = req.params.id;
+    const page = parseInt(req.query.page) || 1;
+    const limit = 10;
+
+    const newsCount = await prisma.news.count({
+      where: {
+        category: {
+          id: parseInt(categoryId),
+        },
+      },
+    });
 
     const newsList = await prisma.news.findMany({
       where: {
@@ -18,8 +28,8 @@ async function newsPage(req, res) {
         category: true,
         author: true,
       },
-
-      take: 10,
+      skip: (page - 1) * limit,
+      take: limit,
     });
 
     const category = await prisma.category.findMany();
@@ -39,6 +49,8 @@ async function newsPage(req, res) {
       category: category,
       newsList: newsList,
       categoryData: categoryData,
+      page: page,
+      newsCount: newsCount,
     });
   } catch (error) {
     console.error(error);

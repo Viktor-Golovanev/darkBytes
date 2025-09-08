@@ -1,21 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/normalize.css" />
-    <link rel="stylesheet" href="/css/reset.css" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/articleStyle.css" />
-    <title><%= title %></title>
-  </head>
+  <%- include('partials/head.ejs') %>
   <body>
     <%- include('partials/header') %>
     <main class="main_content">
       <section class="content article">
+        <%- include('partials/blockGoToBackAndHome',{title: news.category.name,
+        color: news.category.color}) %>
         <div class="container">
-          <%- include('partials/components/blockGoToBackAndHome.ejs',{title:
-          news.category.name, color: news.category.color}) %>
           <div class="article-data">
             <div class="article_author">
               <div class="article_author-data">
@@ -45,9 +37,9 @@
               <p class="article_text dark_text"><%= news.content %></p>
             </div>
           </div>
-          <%- include('partials/components/blockGoToBackAndHome.ejs',{title: '',
-          color: news.category.color}) %>
         </div>
+        <%- include('partials/blockGoToBackAndHome',{title: "", color:
+        news.category.color}) %>
       </section>
     </main>
     <%- include('partials/footer') %>

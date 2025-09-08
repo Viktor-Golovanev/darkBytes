@@ -1,25 +1,17 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/normalize.css" />
-    <link rel="stylesheet" href="/css/reset.css" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/newsStyle.css" />
-    <title><%= title %></title>
-  </head>
+  <%- include('partials/head.ejs') %>
   <body>
     <%- include('partials/header') %>
     <main class="main_content content">
       <section class="posts">
+        <%- include('partials/blockGoToBackAndHome', {title:categoryData.name,
+        color: categoryData.color}) %>
         <div class="container">
-          <%- include('partials/components/blockGoToBackAndHome',
-          {title:categoryData.name, color: categoryData.color}) %> <%-
-          include('partials/posts', {news: newsList}) %> <%-
-          include('partials/components/blockGoToBackAndHome', {title: "", color:
-          categoryData.color}) %>
+          <%- include('partials/posts', {news: newsList}) %>
         </div>
+        <%- include('partials/pagination', {newsCount: newsCount, category:
+        categoryData, page: page,}) %>
       </section>
     </main>
     <%- include('partials/footer') %>

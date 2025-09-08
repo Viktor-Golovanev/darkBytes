@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="pagination">
+    <%- include('components/buttonBack') %> <% const totalPages =
+    Math.ceil(newsCount / 10); %>
+    <ul class="pagination_list">
+      <% if(newsCount > 10) { %> <% for(let i = Math.max(0, page - 4); i <
+      Math.min(totalPages, page + 3); i++) { %>
+      <li class="pagination_item">
+        <a
+          href="/newsCategory/<%= category.id %>?page=<%= i + 1 %>"
+          class="pagination_link"
+        >
+          <button
+            type="button"
+            class="pagination_button <%= i === page - 1 ? 'paginationButtonActive' : '' %>"
+          >
+            <%= i + 1 %>
+          </button>
+        </a>
+      </li>
+      <% } %> <% } %>
+    </ul>
+
+    <%- include('components/buttonGoToHome') %>
+  </div>
+</div>
