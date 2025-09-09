@@ -65,6 +65,7 @@ body {
 
 .section_header {
   margin: 0;
+  padding-top: 15px;
 }
 
 .container {
@@ -104,6 +105,12 @@ body {
   width: 100%;
   height: var(--color-header-height);
   padding: 0 20px;
+  background-image: radial-gradient(
+      ellipse at center,
+      transparent -50%,
+      var(--color-bg-dark) 75%
+    ),
+    url("../img/cube.webp");
 }
 
 .header_logo-title {
