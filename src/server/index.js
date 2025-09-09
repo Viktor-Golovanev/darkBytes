@@ -13,12 +13,20 @@ app.set("views", path.join(__dirname, "../../src/views"));
 // Обслуживай статические файлы из папки public
 app.use(express.static(path.join(__dirname, "../../public")));
 
+app.get("/", (req, res) => {
+  res.json({
+    status: "success",
+    message: "DarkBytes работает на TimeWeb Cloud!",
+    port: PORT,
+  });
+});
+
 // Главная страница
 app.use("/", homeRoutes);
 app.use("/", articleRoutes);
 app.use("/", newsRoutes);
 
 // Запусти сервер
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Сервер запущен на http://localhost:${PORT}`);
 });
