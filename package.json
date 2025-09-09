@@ -4,8 +4,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/server/index.js",
-    "postinstall": "npx prisma generate",
-    "start": "node src/server/index.js"
+    "start": "node src/server/index.js",
+    "generate": "npx prisma generate",
+    "migrate:dev": "prisma migrate dev",
+    "studio": "prisma studio"
   },
   "keywords": [],
   "author": "",
