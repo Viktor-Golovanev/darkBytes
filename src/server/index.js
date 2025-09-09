@@ -2,9 +2,9 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3000;
-const homeRoutes = require(path.join.__dirname, "../routes/homeRoutes");
-const articleRoutes = require(path.join.__dirname, "../routes/articleRoutes");
-const newsRoutes = require(path.join.__dirname, "../routes/newsRoutes");
+const homeRoutes = require(path.join(__dirname, "../routes/homeRoutes"));
+const articleRoutes = require(path.join(__dirname, "../routes/articleRoutes"));
+const newsRoutes = require(path.join(__dirname, "../routes/newsRoutes"));
 
 // Установи EJS как шаблонизатор
 app.set("view engine", "ejs");
