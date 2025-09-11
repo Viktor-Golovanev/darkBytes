@@ -172,6 +172,8 @@ body {
   display: flex;
   max-width: 1440px;
   width: 100%;
+  min-height: 500px;
+  height: 100%;
   background-color: var(--color-bg-light);
   border-radius: 15px;
 }
