@@ -83,7 +83,7 @@ body {
    ТЕКСТОВЫЕ КЛАССЫ
    ================ */
 
-.dark_text {
+.dark_text > p {
   color: var(--color-text-dark);
 }
 
