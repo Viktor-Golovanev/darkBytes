@@ -87,6 +87,10 @@ body {
   color: var(--color-text-dark);
 }
 
+.posts_text p {
+  color: var(--color-text-dark);
+}
+
 .dark_title {
   color: var(--color-text-title-dark);
 }

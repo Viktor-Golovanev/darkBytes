@@ -52,7 +52,7 @@
   text-decoration: none;
 }
 
-.article_new p {
+.article_new {
   color: var(--color-text-dark);
 }
 
