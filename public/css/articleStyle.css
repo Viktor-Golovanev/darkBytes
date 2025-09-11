@@ -52,6 +52,10 @@
   text-decoration: none;
 }
 
+.article_new p {
+  color: var(--color-text-dark);
+}
+
 .article_category-link:hover,
 .article_category-link:focus {
   text-decoration: underline;
