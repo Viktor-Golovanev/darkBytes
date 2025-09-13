@@ -184,7 +184,7 @@ body {
 .content_preview-img {
   min-width: 75%;
   width: 100%;
-  background-size: cover;
+  object-fit: fill;
 }
 
 .card_preview-img {
