@@ -41,7 +41,7 @@ async function getHomePage(req, res) {
     });
 
     const nowDate = new Date();
-    res.render("layout", {
+    res.render("home", {
       title: "DarkBytes",
       logoPartOne: "Dark",
       logoPartTwo: "Bytes",
