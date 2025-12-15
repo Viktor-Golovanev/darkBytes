@@ -1,10 +1,18 @@
 const express = require("express");
 const path = require("path");
 const app = express();
-const PORT = process.env.PORT || 3000;
+
+// Админ панель Роуты //
+
+const dashboardRoutes = require(path.join(__dirname, '../adminRoutes/adminRoutes'));
+
+///////////////////////
+
 const homeRoutes = require(path.join(__dirname, "../routes/homeRoutes"));
 const articleRoutes = require(path.join(__dirname, "../routes/articleRoutes"));
 const newsRoutes = require(path.join(__dirname, "../routes/newsRoutes"));
+
+const PORT = process.env.PORT || 3000;
 
 // Установи EJS как шаблонизатор
 app.set("view engine", "ejs");
@@ -17,6 +25,7 @@ app.use(express.static(path.join(__dirname, "../../public")));
 app.use("/", homeRoutes);
 app.use("/", articleRoutes);
 app.use("/", newsRoutes);
+app.use("/", dashboardRoutes);
 
 // Запусти сервер
 app.listen(PORT, "0.0.0.0", () => {

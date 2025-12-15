@@ -1,0 +1,42 @@
+/* Header */
+:root {
+    /* Цвета */
+    --color-bg-dark: #4b5157;
+    --color-bg-darker: #262d33;
+    --color-bg-light: #eef1f2ff;
+    --color-text-light: #bcbfc2;
+    --color-text-dark: #384551;
+    --color-text-title-dark: #1c242b;
+    --color-header-height: 75px;
+
+    /* Дополнительные цвета */
+    --color-category-blue: #5085b6;
+    --color-hover-gray: #cccccc;
+    --color-hover-text: #707d89;
+    --color-border-shadow: #9f9f9f;
+    --color-footer-bg: hwb(208 15% 80%);
+    --color-link-dark: #384551;
+}
+
+Header {
+    background-color: var(--color-bg-darker);
+}
+
+.adminContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 30px;
+  max-width: 1440px;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.adminTable_list {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+/* ---------- */
